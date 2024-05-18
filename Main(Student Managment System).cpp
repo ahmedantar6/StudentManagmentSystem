@@ -7,6 +7,7 @@ int main() {
     StudentManagementSystem system;
     bool running = true;
     int choice;
+	system.load_students_from_file();
     while (running) {
         cout << "Student Management System\n";
         cout << "1. Add Student Record\n";
@@ -34,12 +35,15 @@ int main() {
             system.generate_mark_sheet();
             break;
         case 6:
-            running = false;
+			system.save_students_to_file();
+			cout << "Exiting the program.\n";
+
+            return 0;
             break;
         default:
             cout << "Invalid choice. Please enter a number between 1 and 6.\n";
             break;
         }
     }
-    return 0;
-}
+    return 0;}
+
